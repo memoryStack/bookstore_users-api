@@ -1,5 +1,11 @@
 package controllers
 
+import (
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+)
+
 /*
 	<----- some wisdom about why and what of this file ------>
 
@@ -10,3 +16,15 @@ package controllers
 	is going on.
 
 */
+
+func GetUser(c *gin.Context) {
+	c.String(http.StatusNotImplemented, "implement me")
+}
+
+func SearchUser(c *gin.Context) {
+	c.String(http.StatusNotImplemented, "implement me")
+}
+
+func CreateUser(c *gin.Context) {
+	c.String(http.StatusNotImplemented, "implement me")
+}
