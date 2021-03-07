@@ -7,8 +7,8 @@ import (
 )
 
 /*
-	"/ping" request is done by the AWS or any other system in ourder to check if our program is live or not.
-	so it it's response we need to pass "200".
+	"/ping" request is done by the AWS or any other cloud system in order to check if our program is live or not.
+	so in it's response we need to pass "pong".
 */
 func Ping(c *gin.Context) {
 	c.String(http.StatusOK, "pong")
