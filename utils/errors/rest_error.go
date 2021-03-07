@@ -18,6 +18,15 @@ func BadRequestError(errMsg string) *RestError {
 	}
 }
 
+// NotFoundError ... not found error response
+func NotFoundError(errMsg string) *RestError {
+	return &RestError{
+		Message: errMsg,
+		Status:  http.StatusNotFound,
+		Error:   "not found",
+	}
+}
+
 /*
 	we defined a common error messages structure to be in sync with all the error happening in any API.
 	if each API has their different different error responses structure then it's going to be a log of overload.

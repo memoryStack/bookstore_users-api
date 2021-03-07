@@ -5,7 +5,22 @@ import (
 	"github.com/backendLearningProjects/bookstore_users-api/utils/errors"
 )
 
+func GetUser(userID int64) (*users.User, *errors.RestError) {
+	// get the user from database
+	result := &users.User{ID: userID}
+	if err := result.Get(); err != nil {
+		return nil, err
+	}
+	return result, nil
+}
+
 func CreateUser(user users.User) (*users.User, *errors.RestError) {
+	if err := user.Validate(); err != nil {
+		return nil, err
+	}
+	if err := user.Create(); err != nil {
+		return nil, err
+	}
 	return &user, nil
 }
 
