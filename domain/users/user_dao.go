@@ -3,6 +3,7 @@ package users
 import (
 	"fmt"
 
+	"github.com/backendLearningProjects/bookstore_users-api/datasources/mysql/users_db"
 	"github.com/backendLearningProjects/bookstore_users-api/utils/date"
 	"github.com/backendLearningProjects/bookstore_users-api/utils/errors"
 )
@@ -15,6 +16,9 @@ var (
 
 // Get ... get user info from database based on the userID
 func (user *User) Get() *errors.RestError {
+	if err := users_db.Client.Ping(); err != nil {
+		panic(err)
+	}
 	// we are modifying the user struct on which this method is called
 	result := usersDB[user.ID]
 	if result == nil {
